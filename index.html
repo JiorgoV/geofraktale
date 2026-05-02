@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Game of Life</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -13,46 +14,64 @@
 
 <body>
 
-    <h1>Game of Life</h1>
-    <button id="btn-info">?</button>
+    <body>
+        <div class="header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="60" height="60">
+    <circle cx="50" cy="50" r="48" fill="#1a1a1a"/>
+    <g stroke="#00d4ff" stroke-width="3" fill="none">
+      <circle cx="75" cy="50" r="20"/>
+      <circle cx="67.7" cy="67.7" r="20"/>
+      <circle cx="50" cy="75" r="20"/>
+      <circle cx="32.3" cy="67.7" r="20"/>
+      <circle cx="25" cy="50" r="20"/>
+      <circle cx="32.3" cy="32.3" r="20"/>
+      <circle cx="50" cy="25" r="20"/>
+      <circle cx="67.7" cy="32.3" r="20"/>
+    </g>
+    <circle cx="50" cy="50" r="20" stroke="#00d4ff" stroke-width="3" fill="none"/>
+    <circle cx="50" cy="50" r="5" fill="#00d4ff"/>
+  </svg>
 
-    <div id="modal" style="display:none;">
-        <div id="modal-content">
-            <button id="btn-close">✕</button>
-            <h2>Was ist Game of Life?</h2>
-            <p>Game of Life ist ein zellulärer Automat, erfunden vom Mathematiker John Conway im Jahr 1970. Es ist kein Spiel im klassischen Sinne — es läuft vollautomatisch ab, sobald du es startest.</p>
-            <h3>Wie funktioniert es?</h3>
-            <p>Das Spielfeld besteht aus einem Gitter von Zellen. Jede Zelle ist entweder <strong>lebendig</strong> oder <strong>tot</strong>. In jeder Generation wird der Zustand jeder Zelle nach 4 simplen Regeln neu berechnet:</p>
-            <ul>
-                <li><strong>Einsamkeit:</strong> Eine lebende Zelle mit weniger als 2 Nachbarn stirbt.</li>
-                <li><strong>Überleben:</strong> Eine lebende Zelle mit 2 oder 3 Nachbarn lebt weiter.</li>
-                <li><strong>Überbevölkerung:</strong> Eine lebende Zelle mit mehr als 3 Nachbarn stirbt.</li>
-                <li><strong>Reproduktion:</strong> Eine tote Zelle mit genau 3 Nachbarn wird lebendig.</li>
-            </ul>
-            <h3>Was kannst du tun?</h3>
-            <ul>
-                <li>Klick auf das Gitter um Zellen zu zeichnen</li>
-                <li>Wähle eine voreingestellte Figur und platziere sie per Klick</li>
-                <li>Drück <strong>Zufall</strong> für ein zufälliges Startmuster</li>
-                <li>Experimentiere mit den <strong>Birth</strong> und <strong>Survival</strong> Regeln für völlig neue Muster</li>
-            </ul>
-            <h3>Interessante Figuren</h3>
-            <ul>
-                <li><strong>Gleiter</strong> — bewegt sich diagonal über das Gitter</li>
-                <li><strong>Pulsar</strong> — oszilliert zwischen verschiedenen Zuständen</li>
-                <li><strong>Gosper Glider Gun</strong> — schießt endlos Gleiter ab</li>
-                <li><strong>Acorn</strong> — kleines Muster das sich explosionsartig ausbreitet</li>
-            </ul>
+            <h1>Game of Life</h1>
+            <button id="btn-info">?</button>
         </div>
-    </div>
-    <a href="hex-grid.html">Hex Grid →</a>
-    <canvas id="canvas"></canvas>
-    <div class="parameters">
-        <button id="btn-start">Start</button>
-        <button id="btn-random">Zufall</button>
-        <button id="btn-clear">Clear</button>
-        <button id="btn-mode">Modus: Zeichnen</button>
-        <select id="pattern-select">
+        <div id="modal" style="display:none;">
+            <div id="modal-content">
+                <button id="btn-close">✕</button>
+                <h2>Was ist Game of Life?</h2>
+                <p>Game of Life ist ein zellulärer Automat, erfunden vom Mathematiker John Conway im Jahr 1970. Es ist kein Spiel im klassischen Sinne — es läuft vollautomatisch ab, sobald du es startest.</p>
+                <h3>Wie funktioniert es?</h3>
+                <p>Das Spielfeld besteht aus einem Gitter von Zellen. Jede Zelle ist entweder <strong>lebendig</strong> oder <strong>tot</strong>. In jeder Generation wird der Zustand jeder Zelle nach 4 simplen Regeln neu berechnet:</p>
+                <ul>
+                    <li><strong>Einsamkeit:</strong> Eine lebende Zelle mit weniger als 2 Nachbarn stirbt.</li>
+                    <li><strong>Überleben:</strong> Eine lebende Zelle mit 2 oder 3 Nachbarn lebt weiter.</li>
+                    <li><strong>Überbevölkerung:</strong> Eine lebende Zelle mit mehr als 3 Nachbarn stirbt.</li>
+                    <li><strong>Reproduktion:</strong> Eine tote Zelle mit genau 3 Nachbarn wird lebendig.</li>
+                </ul>
+                <h3>Was kannst du tun?</h3>
+                <ul>
+                    <li>Klick auf das Gitter um Zellen zu zeichnen</li>
+                    <li>Wähle eine voreingestellte Figur und platziere sie per Klick</li>
+                    <li>Drück <strong>Zufall</strong> für ein zufälliges Startmuster</li>
+                    <li>Experimentiere mit den <strong>Birth</strong> und <strong>Survival</strong> Regeln für völlig neue Muster</li>
+                </ul>
+                <h3>Interessante Figuren</h3>
+                <ul>
+                    <li><strong>Gleiter</strong> — bewegt sich diagonal über das Gitter</li>
+                    <li><strong>Pulsar</strong> — oszilliert zwischen verschiedenen Zuständen</li>
+                    <li><strong>Gosper Glider Gun</strong> — schießt endlos Gleiter ab</li>
+                    <li><strong>Acorn</strong> — kleines Muster das sich explosionsartig ausbreitet</li>
+                </ul>
+            </div>
+        </div>
+        <a href="hex-grid.html">Hex Grid →</a>
+        <canvas id="canvas"></canvas>
+        <div class="parameters">
+            <button id="btn-start">Start</button>
+            <button id="btn-random">Zufall</button>
+            <button id="btn-clear">Clear</button>
+            <button id="btn-mode">Modus: Zeichnen</button>
+            <select id="pattern-select">
         <option value="glider">Gleiter</option>
         <option value="blinker">Blinker</option>
         <option value="block">Block</option>
@@ -65,49 +84,49 @@
         <option value="acorn">Acorn</option>
         <option value="gosperGun">Gosper Glider Gun</option>
     </select>
-        <button id="btn-place">Platzieren</button>
-        <label>Zellen: <input type="color" id="color-alive" value="#85B7EB"></label>
-        <label>Hintergrund: <input type="color" id="color-dead" value="#1a1a1a"></label>
-        <label>Geschwindigkeit: <input type="range" id="speed" min="1" max="60" value="7"></label>
-        <span id="speed-out">7/s</span>
-        <button id="btn-grid">Grid ausblenden</button>
-        <label>Füllrate: <input type="range" id="fill-rate" min="0" max="1" step="0.1" value="0.3"></label>
-        <span id="fill-rate-out">30%</span>
-        <label>Zellgröße: <input type="range" id="cell-size" min="4" max="24" value="12" step="2"></label>
-        <span id="cell-size-out">12px</span>
-        <label>Gitterfarbe: <input type="color" id="color-grid" value="#333"></label>
-        <div>
-            <label>Birth:</label>
-            <div id="birth-boxes">
-                <label><input type="checkbox" value="0"> 0</label>
-                <label><input type="checkbox" value="1"> 1</label>
-                <label><input type="checkbox" value="2"> 2</label>
-                <label><input type="checkbox" value="3" checked> 3</label>
-                <label><input type="checkbox" value="4"> 4</label>
-                <label><input type="checkbox" value="5"> 5</label>
-                <label><input type="checkbox" value="6"> 6</label>
-                <label><input type="checkbox" value="7"> 7</label>
-                <label><input type="checkbox" value="8"> 8</label>
+            <button id="btn-place">Platzieren</button>
+            <label>Zellen: <input type="color" id="color-alive" value="#85B7EB"></label>
+            <label>Hintergrund: <input type="color" id="color-dead" value="#1a1a1a"></label>
+            <label>Geschwindigkeit: <input type="range" id="speed" min="1" max="60" value="7"></label>
+            <span id="speed-out">7/s</span>
+            <button id="btn-grid">Grid ausblenden</button>
+            <label>Füllrate: <input type="range" id="fill-rate" min="0" max="1" step="0.1" value="0.3"></label>
+            <span id="fill-rate-out">30%</span>
+            <label>Zellgröße: <input type="range" id="cell-size" min="4" max="24" value="12" step="2"></label>
+            <span id="cell-size-out">12px</span>
+            <label>Gitterfarbe: <input type="color" id="color-grid" value="#333"></label>
+            <div>
+                <label>Birth:</label>
+                <div id="birth-boxes">
+                    <label><input type="checkbox" value="0"> 0</label>
+                    <label><input type="checkbox" value="1"> 1</label>
+                    <label><input type="checkbox" value="2"> 2</label>
+                    <label><input type="checkbox" value="3" checked> 3</label>
+                    <label><input type="checkbox" value="4"> 4</label>
+                    <label><input type="checkbox" value="5"> 5</label>
+                    <label><input type="checkbox" value="6"> 6</label>
+                    <label><input type="checkbox" value="7"> 7</label>
+                    <label><input type="checkbox" value="8"> 8</label>
+                </div>
+            </div>
+            <div>
+                <label>Survival:</label>
+                <div id="survival-boxes">
+                    <label><input type="checkbox" value="0"> 0</label>
+                    <label><input type="checkbox" value="1"> 1</label>
+                    <label><input type="checkbox" value="2" checked> 2</label>
+                    <label><input type="checkbox" value="3" checked> 3</label>
+                    <label><input type="checkbox" value="4"> 4</label>
+                    <label><input type="checkbox" value="5"> 5</label>
+                    <label><input type="checkbox" value="6"> 6</label>
+                    <label><input type="checkbox" value="7"> 7</label>
+                    <label><input type="checkbox" value="8"> 8</label>
+                </div>
             </div>
         </div>
-        <div>
-            <label>Survival:</label>
-            <div id="survival-boxes">
-                <label><input type="checkbox" value="0"> 0</label>
-                <label><input type="checkbox" value="1"> 1</label>
-                <label><input type="checkbox" value="2" checked> 2</label>
-                <label><input type="checkbox" value="3" checked> 3</label>
-                <label><input type="checkbox" value="4"> 4</label>
-                <label><input type="checkbox" value="5"> 5</label>
-                <label><input type="checkbox" value="6"> 6</label>
-                <label><input type="checkbox" value="7"> 7</label>
-                <label><input type="checkbox" value="8"> 8</label>
-            </div>
-        </div>
-    </div>
 
-    <script src="patterns.js"></script>
-    <script src="game-of-life.js"></script>
-</body>
+        <script src="patterns.js"></script>
+        <script src="game-of-life.js"></script>
+    </body>
 
 </html>
