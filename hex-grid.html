@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hex Grid</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Hex Grid</h1>
+    <button id="btn-info">?</button>
+
+    <div id="modal" style="display:none;">
+        <div id="modal-content">
+            <button id="btn-close">✕</button>
+            <h2>Was ist ein Hex Grid?</h2>
+            <p>Das Hex Grid ist eine Variante von Game of Life auf einem Bienenwaben-Gitter. Statt quadratischen Zellen mit 8 Nachbarn hat hier jede Zelle nur <strong>6 Nachbarn</strong> — wie in einer echten Bienenwabe.</p>
+            <h3>Was ändert sich?</h3>
+            <p>Durch die 6 Nachbarn entstehen völlig andere Muster als beim klassischen Game of Life. Die Standard-Regeln B3/S23 verhalten sich hier anders — experimentiere mit den Birth und Survival Werten um interessante Muster zu entdecken.</p>
+            <h3>Empfohlene Regelsets</h3>
+            <ul>
+                <li><strong>B2/S34</strong> — erzeugt wachsende, organische Muster</li>
+                <li><strong>B3/S23</strong> — klassische Regeln, andere Dynamik als beim Quadrat</li>
+                <li><strong>B2/S45</strong> — stabile, ruhige Strukturen</li>
+                <li><strong>B36/S23</strong> — explosive Ausbreitung</li>
+            </ul>
+            <h3>Was kannst du tun?</h3>
+            <ul>
+                <li>Klick auf das Gitter um Zellen zu zeichnen</li>
+                <li>Wähle ein voreingestelltes Muster und platziere es</li>
+                <li>Ändere die <strong>Birth</strong> und <strong>Survival</strong> Checkboxen während des Laufs</li>
+                <li>Experimentiere mit der Zellgröße und den Farben</li>
+            </ul>
+        </div>
+    </div>
+    <a href="index.html">← Game of Life</a>
+    <canvas id="canvas"></canvas>
+    <div class="parameters">
+        <button id="hex-btn-start">Start</button>
+        <button id="hex-btn-random">Zufall</button>
+        <button id="hex-btn-clear">Clear</button>
+        <button id="hex-btn-grid">Grid ausblenden</button>
+        <select id="hex-pattern-select">
+  <option value="blinker">Blinker</option>
+  <option value="triangle">Dreieck</option>
+  <option value="hexagon">Hexagon</option>
+  <option value="flower">Blume</option>
+  <option value="snake">Schlange</option>
+  <option value="glider">Gleiter</option>
+  <option value="diamond">Diamant</option>
+  <option value="cross">Kreuz</option>
+  <option value="ring">Ring</option>
+  <option value="pulsar">Pulsar</option>
+</select>
+        <button id="hex-btn-place">Platzieren</button>
+        <button id="hex-btn-mode">Modus: Zeichnen</button>
+        <label>Zellen: <input type="color" id="hex-color-alive" value="#85B7EB"></label>
+        <label>Hintergrund: <input type="color" id="hex-color-dead" value="#1a1a1a"></label>
+        <label>Gitterfarbe: <input type="color" id="hex-color-grid" value="#333333"></label>
+        <label>Geschwindigkeit: <input type="range" id="hex-speed" min="1" max="60" value="7"></label>
+        <span id="hex-speed-out">7/s</span>
+        <label>Füllrate: <input type="range" id="hex-fill-rate" min="0.1" max="0.9" step="0.1" value="0.3"></label>
+        <label>Zellgröße: <input type="range" id="hex-cell-size" min="8" max="40" value="20" step="2"></label>
+        <span id="hex-cell-size-out">20px</span>
+        <span id="hex-fill-rate-out">30%</span>
+        <div>
+            <label>Birth:</label>
+            <div id="hex-birth-boxes">
+                <label><input type="checkbox" value="0"> 0</label>
+                <label><input type="checkbox" value="1"> 1</label>
+                <label><input type="checkbox" value="2"> 2</label>
+                <label><input type="checkbox" value="3" checked> 3</label>
+                <label><input type="checkbox" value="4"> 4</label>
+                <label><input type="checkbox" value="5"> 5</label>
+                <label><input type="checkbox" value="6"> 6</label>
+            </div>
+        </div>
+        <div>
+            <label>Survival:</label>
+            <div id="hex-survival-boxes">
+                <label><input type="checkbox" value="0"> 0</label>
+                <label><input type="checkbox" value="1"> 1</label>
+                <label><input type="checkbox" value="2" checked> 2</label>
+                <label><input type="checkbox" value="3" checked> 3</label>
+                <label><input type="checkbox" value="4"> 4</label>
+                <label><input type="checkbox" value="5"> 5</label>
+                <label><input type="checkbox" value="6"> 6</label>
+            </div>
+        </div>
+    </div>
+    <script src="hex-patterns.js"></script>
+    <script src="hex-grid.js"></script>
+</body>
+
+</html>
